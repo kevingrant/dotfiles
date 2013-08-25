@@ -1,0 +1,8 @@
+#!/bin/sh
+gnome-settings-daemon &      # handles themes, starts gnome-screensaver.
+gnome-sound-applet &         # sound volume
+nm-applet &                  # Network Manager
+eval `gnome-keyring-daemon`  # SSH/GPG agent
+dropbox start                # Dropbox daemon
+xautolock -time 60 -locker "lock.sh" &
+exec awesome                 # when it terminates, X will be terminated

@@ -1,3 +1,0 @@
-alias tmux='tmux -2'
-
-function gvim() { (/usr/bin/gvim -f "$@" &) }

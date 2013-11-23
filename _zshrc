@@ -42,4 +42,13 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+autoload -Uz zcalc
+
+# 256 colors
 alias tmux='tmux -2'
+
+# Disable terminal control flow
+stty -ixon
+
+alias sz='source ~/.zshrc'
+alias -g L="--logtostderr"

@@ -1,16 +1,22 @@
-# Set up the prompt
+# fpath=(~/zsh/prompts $fpath)
 
+# Set up the prompt
 autoload -Uz promptinit
 promptinit
 prompt adam1
 
+# Right prompt displays 24 hr time with seconds.
+RPROMPT='%F{white}[%f%*%F{white}]%f'
+
+setopt auto_cd
+
 setopt append_history
 setopt extended_history
 setopt hist_expire_dups_first
-setopt hist_ignore_dups # ignore duplication command history list
+setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt inc_append_history
-setopt share_history # share command history data
+setopt share_history
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -44,6 +50,13 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 autoload -Uz zcalc
 
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
 # 256 colors
 alias tmux='tmux -2'
 
@@ -51,4 +64,5 @@ alias tmux='tmux -2'
 stty -ixon
 
 alias sz='source ~/.zshrc'
+alias topn='print -l -- ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 alias -g L="--logtostderr"

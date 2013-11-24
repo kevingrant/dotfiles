@@ -1,2 +1,8 @@
-e forw-line
-u back-line
+e    forw-line
+u    back-line
+k    repeat-search
+\ek  repeat-search-all
+K    reverse-search
+\eK  reverse-search-all
+h    forw-screen
+j    back-screen

@@ -3,10 +3,10 @@
 # Set up the prompt
 autoload -Uz promptinit
 promptinit
-prompt adam1
+prompt adam1 blue green green
 
 # Right prompt displays 24 hr time with seconds.
-RPROMPT='%F{white}[%f%*%F{white}]%f'
+RPROMPT='%F{white}[%F{green}%*%F{white}]%f'
 
 setopt auto_cd
 

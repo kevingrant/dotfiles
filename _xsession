@@ -4,5 +4,7 @@ gnome-sound-applet &         # sound volume
 nm-applet &                  # Network Manager
 eval `gnome-keyring-daemon`  # SSH/GPG agent
 dropbox start                # Dropbox daemon
+~/bin/edit_server &          # external edit server
 xautolock -time 60 -locker "lock.sh" &
+xflux -l 37.333 -g -121.900  # f.lux
 exec awesome                 # when it terminates, X will be terminated

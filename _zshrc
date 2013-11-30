@@ -67,4 +67,18 @@ stty -ixon
 
 alias sz='source ~/.zshrc'
 alias topn='print -l -- ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
-alias -g L="--logtostderr"
+
+function precmd() {
+  if [ "$(id -u)" -ne 0 ]; then
+    TS=`date +%Y`
+    echo "`date +'%Y/%m/%d %T'` `pwd``history -1`" >> ${HOME}/bin/history.${TS}
+  fi
+}
+
+function gh {
+  case $# in
+    1 ) grep -E -a -r -h "${1}" ${HOME}/bin/history.* ;;
+    2 ) grep -E -a -r -h "${1}" ${HOME}/bin/history.* | tail -n $2 ;;
+    * ) echo 'Usage: gh PATTERN [COUNT]'
+  esac
+}

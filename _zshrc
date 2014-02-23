@@ -1,4 +1,4 @@
-# fpath=(~/zsh/prompts $fpath)
+fpath=(~/.zsh/completions $fpath)
 
 # Set up the prompt
 autoload -Uz promptinit
@@ -67,6 +67,7 @@ stty -ixon
 
 alias sz='source ~/.zshrc'
 alias topn='print -l -- ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
+alias la='ls -la'
 
 function precmd() {
   if [ "$(id -u)" -ne 0 ]; then

@@ -1,4 +1,5 @@
 #!/bin/sh
+xcompmgr -c &
 gnome-settings-daemon &      # handles themes, starts gnome-screensaver.
 gnome-sound-applet &         # sound volume
 nm-applet &                  # Network Manager

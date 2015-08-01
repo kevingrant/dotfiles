@@ -7,4 +7,6 @@ eval `gnome-keyring-daemon`  # SSH/GPG agent
 dropbox start                # Dropbox daemon
 xautolock -time 60 -locker "lock.sh" &
 xflux -l 37.333 -g -121.900  # f.lux
+xset r rate 250 30
+xset m 4 4
 exec awesome                 # when it terminates, X will be terminated

@@ -6,7 +6,7 @@ promptinit
 prompt adam1 blue green green
 
 # Right prompt displays 24 hr time with seconds.
-RPROMPT='%F{white}[%F{green}%*%F{white}]%f'
+# RPROMPT="$(virtualenv_info) %F{white}[%F{green}%*%F{white}]%f"
 
 setopt auto_cd
 
@@ -56,8 +56,10 @@ autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+# bindkey "^[[A" up-line-or-beginning-search # Up
+# bindkey "^[[B" down-line-or-beginning-search # Down
+bindkey "${key[Up]}" up-line-or-beginning-search
+bindkey "${key[Down]}" down-line-or-beginning-search
 
 # 256 colors
 alias tmux='tmux -2'
@@ -73,6 +75,7 @@ function precmd() {
     TS=`date +%Y`
     echo "`date +'%Y/%m/%d %T'` `pwd``history -1`" >> ${HOME}/bin/history.${TS}
   fi
+  RPROMPT="$(virtualenv_info)%F{white}[%F{green}%*%F{white}]%f"
 }
 
 function gh {
@@ -82,3 +85,11 @@ function gh {
     * ) echo 'Usage: gh PATTERN [COUNT]'
   esac
 }
+
+function virtualenv_info {
+  [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+}
+
+export PROJECT_HOME=$HOME/work
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh

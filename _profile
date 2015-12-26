@@ -25,5 +25,5 @@ export EDITOR=vi
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export VIM=/usr/share/vim/vim74a
-export VIMRUNTIME=/usr/share/vim/vim74a
+# export VIM=/usr/share/vim/vim74a
+# export VIMRUNTIME=/usr/share/vim/vim74a

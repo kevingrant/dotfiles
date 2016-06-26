@@ -67,6 +67,7 @@ alias tmux='tmux -2'
 # Disable terminal control flow
 stty -ixon
 
+alias nautilus='nautilus --no-desktop'
 alias sz='source ~/.zshrc'
 alias la='ls -la'
 

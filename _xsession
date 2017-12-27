@@ -1,9 +1,9 @@
 #!/bin/sh
-xcompmgr -c &
+# xcompmgr -c &
 # gnome-settings-daemon &      # handles themes, starts gnome-screensaver.
 # gnome-sound-applet &         # sound volume
-nm-applet &                  # Network Manager
-eval `gnome-keyring-daemon`  # SSH/GPG agent
+# nm-applet &                  # Network Manager
+# eval `gnome-keyring-daemon`  # SSH/GPG agent
 # eval "$(ssh-agent -s)"
 dropbox start                # Dropbox daemon
 xautolock -time 60 -locker "lock.sh" &

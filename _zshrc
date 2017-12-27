@@ -56,10 +56,25 @@ autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-# bindkey "^[[A" up-line-or-beginning-search # Up
-# bindkey "^[[B" down-line-or-beginning-search # Down
-bindkey "${key[Up]}" up-line-or-beginning-search
-bindkey "${key[Down]}" down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+# bindkey "${key[Up]}" up-line-or-beginning-search
+# bindkey "${key[Down]}" down-line-or-beginning-search
+
+# key bindings
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[4~" end-of-line
+bindkey "\e[5~" beginning-of-history
+bindkey "\e[6~" end-of-history
+bindkey "\e[3~" delete-char
+bindkey "\e[2~" quoted-insert
+bindkey "\e[5C" forward-word
+bindkey "\eOc" emacs-forward-word
+bindkey "\e[5D" backward-word
+bindkey "\eOd" emacs-backward-word
+bindkey "\ee[C" forward-word
+bindkey "\ee[D" backward-word
+bindkey "^H" backward-delete-word
 
 # 256 colors
 alias tmux='tmux -2'
@@ -70,6 +85,7 @@ stty -ixon
 alias nautilus='nautilus --no-desktop'
 alias sz='source ~/.zshrc'
 alias la='ls -la'
+alias vi='vim'
 
 function precmd() {
   if [ "$(id -u)" -ne 0 ]; then
@@ -93,4 +109,4 @@ function virtualenv_info {
 
 export PROJECT_HOME=$HOME/work
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh

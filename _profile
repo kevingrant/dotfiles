@@ -21,10 +21,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-export EDITOR=vi
+export EDITOR=vim
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
-export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin:$GOBIN
+export GOROOT=/usr/lib/go
+export PATH=$PATH:$GOROOT/bin:$GOBIN:~/.npm-global/bin
 # export VIM=/usr/share/vim/vim74a
 # export VIMRUNTIME=/usr/share/vim/vim74a
